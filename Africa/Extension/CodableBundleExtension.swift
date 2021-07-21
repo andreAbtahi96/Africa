@@ -8,8 +8,10 @@
 import Foundation
 
 extension Bundle{
-    //underscore means you don't have to write the param label everytime
-    func decode(file: String) -> [CoverImage] {
+    //  underscore means you don't have to write the param label everytime
+    //  T is for type. It is comoon but you can use any letter.
+    //  Now. Instead of returning [CoverImage] we return T
+    func decode<T: Codable> (file: String) -> T {
         
         //1 Locate JSON file
         guard let url = self.url(forResource: file, withExtension: nil) else {
@@ -25,7 +27,7 @@ extension Bundle{
         let decoder = JSONDecoder()
         
         //4 Create a property for the decoder data
-        guard let loaded = try? decoder.decode([CoverImage].self, from: data) else {
+        guard let loaded = try? decoder.decode(T.self, from: data) else {
             fatalError("Failed to decode \(file) from bundle.")
         }
         
