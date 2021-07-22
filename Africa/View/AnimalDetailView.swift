@@ -33,7 +33,6 @@ struct AnimalDetailView: View {
                             .offset(y: 24)
                     )
                 
-                
                 // HEADLINE
                 Text(animal.headline)
                     .font(.headline)
@@ -48,13 +47,38 @@ struct AnimalDetailView: View {
                     InsetGalleryView(animal: animal)
                 }
                 .padding(.horizontal)
+                
                 // FACTS
+                Group{
+                    HeadingView(headingImage: "questionmark.circle", headingText: "Did you know?")
+                    InsetFactView(animal: animal)
+                }
+                .padding(.horizontal)
                 
                 // DESCRIPTION
+                Group{
+                    HeadingView(headingImage: "info.circle", headingText: "All about the \(animal.name)")
+                    
+                    Text(animal.description)
+                        .multilineTextAlignment(.leading)
+                        .layoutPriority(1)
+                }
+                .padding(.horizontal)
                 
-                // MAP
+                // MAP 
+                Group{
+                    HeadingView(headingImage: "map", headingText: "National Parks")
+                    InsetMapView()
+                }
+                .padding(.horizontal)
                 
                 // LINK
+                Group{
+                    HeadingView(headingImage: "books.vertical", headingText: "Learn More")
+                    ExternalWeblinkView(animal: animal)
+                }
+                .padding(.horizontal)
+                
             }// VSTACK
             .navigationBarTitle("Learn about \(animal.name)", displayMode: .inline)
         }// SCROLLVIEW
