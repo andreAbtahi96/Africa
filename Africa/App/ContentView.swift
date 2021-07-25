@@ -25,9 +25,7 @@ struct ContentView: View {
                     NavigationLink(destination: AnimalDetailView(animal: animal)){
                         AnimalListItemView(animal: animal)
                     }// NAVIGATIONLINK
-                    
                 }// LOOP
-                
             }// LIST
             .navigationBarTitle("Africa", displayMode: .large)
         }// NAVIGATIONVIEW
