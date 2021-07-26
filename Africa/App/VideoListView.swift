@@ -11,7 +11,7 @@ struct VideoListView: View {
     
     // Property
     @State var videos: [Video] = Bundle.main.decode(file: "videos.json")
-    let hapticImpact = UIImpactFeedbackGenerator(style: .medium)
+    let hapticImpact = UIImpactFeedbackGenerator(style: .heavy)
     
     // Body
     var body: some View {
