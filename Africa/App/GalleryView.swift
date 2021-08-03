@@ -87,7 +87,7 @@ struct GalleryView: View {
                             }// .onTapGesture
                     }// LOOP
                 }// LAZYVGRID
-                animation(.easeIn)
+                .animation(.easeIn)
                 .onAppear(perform: {
                     gridSwitch()
                 })// updates grid layout instantly using grid column value
